@@ -1,0 +1,95 @@
+import type { Event } from '../../domain/Event';
+
+export const events: Event[] = [
+  {
+    id: '1',
+    name: 'Boda Sofía & Daniel',
+    date: '2026-06-20',
+    location: 'Hacienda El Paraíso',
+    description: 'Una celebración elegante y memorable.',
+    coverImage: '/src/assets/hero.png',
+  },
+  {
+    id: '2',
+    name: 'Boda Andrea & Miguel',
+    date: '2026-09-10',
+    location: 'Jardín La Toscana',
+    description: 'Boda al aire libre con temática floral.',
+    coverImage: '/src/assets/hero.png',
+  },
+  {
+    id: '3',
+    name: 'XV Años Valeria',
+    date: '2026-07-15',
+    location: 'Salón Diamante',
+    description: 'Fiesta de 15 años con DJ y pista iluminada.',
+    coverImage: '/src/assets/hero.png',
+  },
+  {
+    id: '4',
+    name: 'Graduación Ingeniería 2026',
+    date: '2026-08-01',
+    location: 'Centro de Convenciones',
+    description: 'Ceremonia y fiesta de graduación universitaria.',
+    coverImage: '/src/assets/hero.png',
+  },
+  {
+    id: '5',
+    name: 'Aniversario de Bodas de Oro',
+    date: '2026-10-22',
+    location: 'Hotel Real',
+    description: '50 años de amor celebrados en familia.',
+    coverImage: '/src/assets/hero.png',
+  },
+  {
+    id: '6',
+    name: 'Baby Shower Camila',
+    date: '2026-05-12',
+    location: 'Casa de los Abuelos',
+    description: 'Celebración íntima para la llegada de Camila.',
+    coverImage: '/src/assets/hero.png',
+  },
+  {
+    id: '7',
+    name: 'Bautizo Santiago',
+    date: '2026-04-30',
+    location: 'Iglesia San Juan',
+    description: 'Bautizo y comida familiar.',
+    coverImage: '/src/assets/hero.png',
+  },
+  {
+    id: '8',
+    name: 'Despedida de Soltera Mariana',
+    date: '2026-06-01',
+    location: 'Bar La Terraza',
+    description: 'Noche de amigas y diversión.',
+    coverImage: '/src/assets/hero.png',
+  },
+  {
+    id: '9',
+    name: 'Fiesta de Halloween',
+    date: '2026-10-31',
+    location: 'Club Social',
+    description: 'Disfraces, música y premios.',
+    coverImage: '/src/assets/hero.png',
+  },
+  {
+    id: '10',
+    name: 'Reunión Empresarial Q3',
+    date: '2026-09-15',
+    location: 'Centro de Negocios',
+    description: 'Networking y presentaciones de resultados.',
+    coverImage: '/src/assets/hero.png',
+  },
+  {
+    id: '11',
+    name: 'Evento Especial 11',
+    date: '2026-01-03',
+    location: 'Lugar 11',
+    description: 'Descripción del evento especial número 11.',
+    coverImage: '/src/assets/hero.png',
+  },
+];
+
+// Para compatibilidad con el código anterior
+export const event = events[0];
