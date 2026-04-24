@@ -516,7 +516,7 @@ export default function LandingPage() {
                 alt="Evento elegante"
                 className="lp-hero-img"
               />
-              <span className="lp-hero-frame-label">Plataforma profesional</span>
+              <span className="lp-hero-frame-label">Gestiona los mejores momentos </span>
             </div>
           </motion.div>
 
