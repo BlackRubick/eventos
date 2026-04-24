@@ -50,19 +50,18 @@ export default function DashboardPage() {
     tablesCount: ''
   });
 
+
+  // Restaurar variables y funciones necesarias para el formulario y modal
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
-
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
-  /* ================= FIX ================= */
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-
     if (name === 'tablesCount') {
       let val = value.replace(/\D/g, '');
       if (val.startsWith('0')) val = val.replace(/^0+/, '');
@@ -74,17 +73,13 @@ export default function DashboardPage() {
 
   const handleImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-
     if (file) {
       setImageFile(file);
-
       const reader = new FileReader();
       reader.onload = ev => {
         setImagePreview(ev.target?.result as string);
       };
-
       reader.readAsDataURL(file);
-
       setForm(f => ({ ...f, coverImage: '' }));
     }
   };
@@ -92,16 +87,12 @@ export default function DashboardPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
-
     if (!form.name || !form.date || !form.location) {
       setError('Todos los campos son obligatorios');
       return;
     }
-
     const tablesCount = Number(form.tablesCount) || 1;
-
     setLoading(true);
-
     setTimeout(() => {
       addEvent({
         id: String(Date.now()),
@@ -112,10 +103,8 @@ export default function DashboardPage() {
         coverImage: imagePreview || form.coverImage,
         tablesCount
       });
-
       setLoading(false);
       setSuccess(true);
-
       setTimeout(() => {
         setShowModal(false);
         setSuccess(false);

@@ -1,7 +1,7 @@
 import { guests } from '../../infrastructure/mocks/guests.mock';
 import { event } from '../../infrastructure/mocks/event.mock';
 import { QRCodeCanvas } from 'qrcode.react';
-import { PDFDownloadLink, Document, Page, Text, View, Image, StyleSheet } from '@react-pdf/renderer';
+import { PDFDownloadLink, Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({
   page: { backgroundColor: '#fff', padding: 32 },
