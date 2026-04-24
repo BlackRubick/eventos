@@ -464,21 +464,6 @@ export default function LandingPage() {
       <style>{css}</style>
       <div className="lp-root">
 
-        {/* NAV */}
-        <motion.nav
-          className="lp-nav"
-          initial={{ opacity: 0, y: -16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <a href="/" className="lp-logo">Eventum</a>
-          <ul className="lp-nav-links">
-            <li><a href="#features">Funcionalidades</a></li>
-            <li><a href="/dashboard">Dashboard</a></li>
-          </ul>
-          <a href="/dashboard" className="lp-nav-cta">Comenzar</a>
-        </motion.nav>
-
         {/* HERO */}
         <section className="lp-hero">
           <motion.div
@@ -516,7 +501,7 @@ export default function LandingPage() {
                 alt="Evento elegante"
                 className="lp-hero-img"
               />
-              <span className="lp-hero-frame-label">Gestiona los mejores momentos </span>
+              <span className="lp-hero-frame-label">Plataforma profesional</span>
             </div>
           </motion.div>
 
