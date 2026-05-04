@@ -484,8 +484,8 @@ export default function DashboardPage() {
         {/* HEADER */}
         <div className="dash-header">
           <div>
-            <p className="dash-count">{allEvents.length} Evento</p>
-            <h1>Mis <span>Evento</span></h1>
+            <p className="dash-count">{allEvents.length} Eventos</p>
+            <h1>Mis <span>Eventos</span></h1>
             <div className="gold-line" />
           </div>
           <button className="btn-new" onClick={() => setShowModal(true)}>
