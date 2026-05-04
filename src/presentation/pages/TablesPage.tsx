@@ -2,6 +2,7 @@ import { tables } from '../../infrastructure/mocks/tables.mock';
 import { guests } from '../../infrastructure/mocks/guests.mock';
 import { events } from '../../infrastructure/mocks/event.mock';
 import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /* ================= STYLES ================= */
@@ -337,13 +338,17 @@ const fadeUp = {
 };
 
 export default function TablesPage() {
+  const { eventId } = useParams<{ eventId: string }>();
+  const navigate = useNavigate();
   const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
   const [selectedTable, setSelectedTable] = useState<string | null>(null);
 
-  const filteredTables = selectedEvent ? tables.filter(t => t.eventId === selectedEvent) : [];
-  const filteredGuests = selectedEvent ? guests.filter(g => g.eventId === selectedEvent) : [];
+  const activeEventId = eventId ?? selectedEvent;
 
-  const activeEvent = events.find(e => e.id === selectedEvent);
+  const filteredTables = activeEventId ? tables.filter(t => t.eventId === activeEventId) : [];
+  const filteredGuests = activeEventId ? guests.filter(g => g.eventId === activeEventId) : [];
+
+  const activeEvent = events.find(e => e.id === activeEventId);
   const activeTable = filteredTables.find(t => t.id === selectedTable);
   const tableGuests = activeTable
     ? activeTable.guests.map(gid => filteredGuests.find(g => g.id === gid)).filter(Boolean)
@@ -358,10 +363,10 @@ export default function TablesPage() {
         <div className="tp-header">
           <div>
             <p className="tp-eyebrow">
-              {activeEvent ? `Evento · ${activeEvent.name}` : 'Gestión de espacios'}
+              {activeEvent ? `Rével · ${activeEvent.name}` : 'Gestión de espacios'}
             </p>
             <h1 className="tp-title">
-              {activeEvent ? <><em>Mesas</em> del evento</> : <>Orden de <em>mesas</em></>}
+              {activeEvent ? <><em>Mesas</em> del Rével</> : <>Orden de <em>mesas</em></>}
             </h1>
             <div className="tp-gold-line" />
           </div>
@@ -373,9 +378,9 @@ export default function TablesPage() {
         </div>
 
         {/* ── STEP 1: ELEGIR EVENTO ── */}
-        {!selectedEvent && (
+        {!activeEventId && (
           <motion.div variants={stagger} initial="hidden" animate="show">
-            <p className="tp-select-label">Selecciona un evento</p>
+            <p className="tp-select-label">Selecciona un Rével</p>
             <div className="tp-events-grid">
               {events.map(event => (
                 <motion.button
@@ -394,17 +399,17 @@ export default function TablesPage() {
         )}
 
         {/* ── STEP 2: VER MESAS ── */}
-        {selectedEvent && (
+        {activeEventId && (
           <>
-            <button className="tp-back" onClick={() => setSelectedEvent(null)}>
+            <button className="tp-back" onClick={() => (eventId ? navigate('/dashboard') : setSelectedEvent(null))}>
               <svg width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" strokeWidth="1.5" fill="none">
                 <polyline points="8,1 3,6 8,11"/>
               </svg>
-              Cambiar evento
+              Cambiar Rével
             </button>
 
             {filteredTables.length === 0 ? (
-              <p className="tp-no-tables">Este evento no tiene mesas configuradas.</p>
+              <p className="tp-no-tables">Este Rével no tiene mesas configuradas.</p>
             ) : (
               <motion.div
                 className="tp-tables-grid"

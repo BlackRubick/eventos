@@ -21,7 +21,6 @@ const css = `
     padding: 0 3rem;
     height: 60px;
     background: rgba(10,9,8,0.92);
-    backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(201,168,76,0.1);
   }
 
@@ -100,14 +99,11 @@ export default function MainLayout() {
       <style>{css}</style>
       <div className="layout-root">
         <nav className="layout-nav">
-          <a href="/" className="layout-logo">Eventos</a>
+          <a href="/" className="layout-logo">Rével</a>
           <ul className="layout-links">
             {[
               { to: '/', label: 'Inicio' },
               { to: '/dashboard', label: 'Dashboard' },
-              { to: '/guests', label: 'Invitados' },
-              { to: '/tables', label: 'Mesas' },
-              { to: '/qr', label: 'QR' },
               { to: '/pdf', label: 'PDF' },
             ].map(({ to, label }) => (
               <li key={to}>

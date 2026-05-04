@@ -7,4 +7,6 @@ export interface Guest {
   tableId?: string;
   rsvp: RSVPStatus;
   eventId: string;
+  rsvpCode?: string;
+  rsvpUrl?: string;
 }

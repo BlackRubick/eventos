@@ -24,12 +24,12 @@ const features = [
   {
     num: '05',
     title: 'Galería de fotos por QR',
-    desc: 'Cada mesa tiene un QR para subir y ver fotos del evento.',
+    desc: 'Cada mesa tiene un QR para subir y ver fotos del Rével.',
   },
   {
     num: '06',
     title: 'Panel de administración seguro',
-    desc: 'Acceso protegido para organizar y monitorear todo el evento.',
+    desc: 'Acceso protegido para organizar y monitorear todo Rével.',
   },
 ];
 
@@ -213,6 +213,9 @@ const css = `
   }
   .lp-hero-frame {
     position: relative;
+    padding: 12px;
+    border: 1px solid rgba(201,168,76,0.2);
+    background: #0a0908;
   }
   .lp-hero-img {
     width: 100%;
@@ -220,14 +223,16 @@ const css = `
     object-fit: cover;
     display: block;
     filter: brightness(0.7) saturate(0.7);
+    position: relative;
+    z-index: 1;
   }
   .lp-hero-frame::before {
     content: '';
     position: absolute;
-    inset: -12px -12px 12px 12px;
-    border: 1px solid rgba(201,168,76,0.2);
+    inset: 6px;
+    border: 1px solid rgba(201,168,76,0.14);
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
   }
   .lp-hero-frame-label {
     position: absolute;
@@ -240,6 +245,7 @@ const css = `
     text-transform: uppercase;
     padding: 0.4rem 1rem;
     font-weight: 500;
+    z-index: 2;
   }
 
   /* Scroll indicator */
@@ -256,6 +262,8 @@ const css = `
     font-size: 0.65rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
+    pointer-events: none;
+    user-select: none;
   }
   .lp-scroll-line {
     width: 1px;
@@ -473,17 +481,17 @@ export default function LandingPage() {
             animate="show"
           >
             <motion.div className="lp-hero-eyebrow" variants={fadeUp}>
-              <span>Gestión de eventos</span>
+              <span>Gestión de Eventos</span>
             </motion.div>
             <motion.h1 className="lp-hero-h1" variants={fadeUp}>
               Organiza tu<br />
-              evento <em>soñado</em>
+              Rével <em>soñado</em>
             </motion.h1>
             <motion.p className="lp-hero-p" variants={fadeUp}>
               Gestión de invitados, mesas, confirmaciones y recuerdos — todo en una sola plataforma profesional diseñada para los momentos que importan.
             </motion.p>
             <motion.div className="lp-hero-actions" variants={fadeUp}>
-              <a href="/dashboard" className="btn-primary">Ir al dashboard</a>
+              <a href="/planes" className="btn-primary">Entrar</a>
               <a href="#features" className="btn-ghost">Ver funcionalidades</a>
             </motion.div>
           </motion.div>
@@ -497,8 +505,8 @@ export default function LandingPage() {
           >
             <div className="lp-hero-frame">
               <img
-                src="/src/assets/hero.png"
-                alt="Evento elegante"
+                src="/images/relevellanding.png"
+                alt="Rével elegante"
                 className="lp-hero-img"
               />
               <span className="lp-hero-frame-label">Los mejores momentos </span>
@@ -520,7 +528,7 @@ export default function LandingPage() {
           transition={{ duration: 0.8 }}
         >
           {[
-            { num: '500+', label: 'Eventos organizados' },
+            { num: '500+', label: 'Rével organizados' },
             { num: '12k+', label: 'Invitados gestionados' },
             { num: '100%', label: 'Satisfacción garantizada' },
           ].map(s => (
@@ -545,7 +553,7 @@ export default function LandingPage() {
               <em>necesitas</em>
             </h2>
             <p className="lp-features-intro">
-              Cada funcionalidad fue diseñada para eliminar el caos de organizar eventos y darte control total, con la elegancia que tu ocasión merece.
+              Cada funcionalidad fue diseñada para eliminar el caos de organizar Rével y darte control total, con la elegancia que tu ocasión merece.
             </p>
           </motion.div>
 
@@ -582,14 +590,9 @@ export default function LandingPage() {
             El evento <em>perfecto</em> comienza aquí
           </h2>
           <div className="lp-cta-divider" />
-          <a href="/dashboard" className="btn-primary">Comenzar ahora</a>
+          <a href="/planes" className="btn-primary">Entrar</a>
         </motion.section>
 
-        {/* FOOTER */}
-        <footer className="lp-footer">
-          <span className="lp-footer-logo">Eventum</span>
-          <span className="lp-footer-copy">© {new Date().getFullYear()} — Todos los derechos reservados</span>
-        </footer>
 
       </div>
     </>

@@ -83,10 +83,10 @@ export const events: Event[] = [
   },
   {
     id: '11',
-    name: 'Evento Especial 11',
+    name: 'Rével Especial 11',
     date: '2026-01-03',
     location: 'Lugar 11',
-    description: 'Descripción del evento especial número 11.',
+    description: 'Descripción del Rével especial número 11.',
     coverImage: '/src/assets/hero.png',
   },
 ];

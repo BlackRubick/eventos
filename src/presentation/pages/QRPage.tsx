@@ -3,6 +3,7 @@ import { events } from '../../infrastructure/mocks/event.mock';
 import { tables } from '../../infrastructure/mocks/tables.mock';
 import { photos } from '../../infrastructure/mocks/photos.mock';
 import { QRCodeCanvas } from 'qrcode.react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /* ================= STYLES ================= */
@@ -340,11 +341,15 @@ const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.07 } } };
 const fadeUp  = { hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.38 } } };
 
 export default function QRPage() {
+  const { eventId } = useParams<{ eventId: string }>();
+  const navigate = useNavigate();
   const [selectedEvent, setSelectedEvent] = useState<string | null>(null);
   const [selectedTable, setSelectedTable] = useState<string | null>(null);
 
-  const filteredTables = selectedEvent ? tables.filter(t => t.eventId === selectedEvent) : [];
-  const activeEvent    = events.find(e => e.id === selectedEvent);
+  const activeEventId = eventId ?? selectedEvent;
+
+  const filteredTables = activeEventId ? tables.filter(t => t.eventId === activeEventId) : [];
+  const activeEvent    = events.find(e => e.id === activeEventId);
   const activeTable    = filteredTables.find(t => t.id === selectedTable);
   const tablePhotos    = selectedTable ? photos.filter(p => p.tableId === selectedTable) : [];
 
@@ -357,7 +362,7 @@ export default function QRPage() {
         <div className="qp-header">
           <div>
             <p className="qp-eyebrow">
-              {activeEvent ? `Evento · ${activeEvent.name}` : 'Acceso rápido'}
+              {activeEvent ? `Rével · ${activeEvent.name}` : 'Acceso rápido'}
             </p>
             <h1 className="qp-title">
               {activeEvent ? <>Códigos <em>QR</em></> : <>QR y <em>galería</em></>}
@@ -371,10 +376,10 @@ export default function QRPage() {
           )}
         </div>
 
-        {/* ── STEP 1: ELEGIR EVENTO ── */}
-        {!selectedEvent && (
+        {/* ── STEP 1: ELEGIR REVEL ── */}
+        {!activeEventId && (
           <motion.div variants={stagger} initial="hidden" animate="show">
-            <p className="qp-select-label">Selecciona un evento</p>
+            <p className="qp-select-label">Selecciona un Rével</p>
             <div className="qp-events-grid">
               {events.map(event => (
                 <motion.button
@@ -396,17 +401,17 @@ export default function QRPage() {
         )}
 
         {/* ── STEP 2: MESAS CON QR ── */}
-        {selectedEvent && (
+        {activeEventId && (
           <>
-            <button className="qp-back" onClick={() => setSelectedEvent(null)}>
+            <button className="qp-back" onClick={() => (eventId ? navigate('/dashboard') : setSelectedEvent(null))}>
               <svg width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" strokeWidth="1.5" fill="none">
                 <polyline points="8,1 3,6 8,11"/>
               </svg>
-              Cambiar evento
+              Cambiar Rével
             </button>
 
             {filteredTables.length === 0 ? (
-              <p className="qp-no-tables">Este evento no tiene mesas configuradas.</p>
+              <p className="qp-no-tables">Este Rével no tiene mesas configuradas.</p>
             ) : (
               <motion.div
                 className="qp-tables-grid"
@@ -474,14 +479,14 @@ export default function QRPage() {
 
                   {/* Gallery */}
                   <div className="qp-gallery-section">
-                    <p className="qp-gallery-title">Fotos del evento</p>
+                    <p className="qp-gallery-title">Fotos del Rével</p>
                     <div className="qp-gallery-grid">
                       {tablePhotos.length > 0 ? (
                         tablePhotos.map(photo => (
                           <img
                             key={photo.id}
                             src={photo.url}
-                            alt="Foto evento"
+                            alt="Foto Rével"
                             className="qp-gallery-img"
                           />
                         ))

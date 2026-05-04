@@ -484,8 +484,8 @@ export default function DashboardPage() {
         {/* HEADER */}
         <div className="dash-header">
           <div>
-            <p className="dash-count">{allEvents.length} evento{allEvents.length !== 1 ? 's' : ''}</p>
-            <h1>Mis <span>Eventos</span></h1>
+            <p className="dash-count">{allEvents.length} Rével</p>
+            <h1>Mis <span>Rével</span></h1>
             <div className="gold-line" />
           </div>
           <button className="btn-new" onClick={() => setShowModal(true)}>
@@ -493,7 +493,7 @@ export default function DashboardPage() {
               <line x1="7" y1="1" x2="7" y2="13" />
               <line x1="1" y1="7" x2="13" y2="7" />
             </svg>
-            Nuevo evento
+            Nuevo Rével
           </button>
         </div>
 
@@ -501,7 +501,7 @@ export default function DashboardPage() {
         <div className="events-grid">
           {allEvents.length === 0 && (
             <div className="empty-state">
-              <p>Aún no hay eventos creados.</p>
+              <p>Aún no hay Rével creados.</p>
             </div>
           )}
           {allEvents.map((event, i) => (
@@ -515,7 +515,7 @@ export default function DashboardPage() {
             >
               <img className="event-card-img" src={event.coverImage} alt={event.name} />
               <div className="event-card-overlay">
-                <p className="event-card-tag">Evento</p>
+                <p className="event-card-tag">Rével</p>
                 <h2 className="event-card-name">{event.name}</h2>
                 <p className="event-card-meta">{event.date} &nbsp;·&nbsp; {event.location}</p>
                 {event.description && (
@@ -569,12 +569,12 @@ export default function DashboardPage() {
                           <polyline points="4,10 8,14 16,6"/>
                         </svg>
                       </div>
-                      <p>Evento creado</p>
+                      <p>Rével creado</p>
                     </div>
                   ) : (
                     <>
-                      <h2 className="modal-title">Nuevo evento</h2>
-                      <p className="modal-subtitle">Completa los datos del evento</p>
+                      <h2 className="modal-title">Nuevo Rével</h2>
+                      <p className="modal-subtitle">Completa los datos del Rével</p>
 
                       {/* Image upload */}
                       <div className="form-field" style={{ marginBottom: '1.5rem' }}>
@@ -591,7 +591,7 @@ export default function DashboardPage() {
                       </div>
 
                       <div className="form-field">
-                        <label>Nombre del evento</label>
+                        <label>Nombre del Rével</label>
                         <input
                           type="text" name="name" value={form.name}
                           onChange={handleChange} placeholder="Boda · Cena de gala · XV años"
@@ -625,7 +625,7 @@ export default function DashboardPage() {
                         <textarea
                           name="description" value={form.description}
                           onChange={handleChange} rows={3}
-                          placeholder="Breve descripción del evento..."
+                          placeholder="Breve descripción del Rével..."
                         />
                       </div>
 
@@ -641,7 +641,7 @@ export default function DashboardPage() {
                             </svg>
                             Creando…
                           </>
-                        ) : 'Crear evento'}
+                        ) : 'Crear Rével'}
                       </button>
                     </>
                   )}
