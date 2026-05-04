@@ -99,7 +99,7 @@ export default function MainLayout() {
       <style>{css}</style>
       <div className="layout-root">
         <nav className="layout-nav">
-          <a href="/" className="layout-logo">Rével</a>
+          <a href="/" className="layout-logo">Evento</a>
           <ul className="layout-links">
             {[
               { to: '/', label: 'Inicio' },

@@ -78,7 +78,7 @@ export default function EventLayout() {
       <style>{css}</style>
       <div className="ctx-bar">
         <button type="button" onClick={() => navigate('/dashboard')} className="ctx-back">
-          ← Mis Rével
+          ← Mis Evento
         </button>
         <span className="ctx-event-name">{event?.name ?? eventId}</span>
         <nav className="ctx-tabs">

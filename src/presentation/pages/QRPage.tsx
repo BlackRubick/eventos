@@ -362,7 +362,7 @@ export default function QRPage() {
         <div className="qp-header">
           <div>
             <p className="qp-eyebrow">
-              {activeEvent ? `Rével · ${activeEvent.name}` : 'Acceso rápido'}
+              {activeEvent ? `Evento · ${activeEvent.name}` : 'Acceso rápido'}
             </p>
             <h1 className="qp-title">
               {activeEvent ? <>Códigos <em>QR</em></> : <>QR y <em>galería</em></>}
@@ -379,7 +379,7 @@ export default function QRPage() {
         {/* ── STEP 1: ELEGIR REVEL ── */}
         {!activeEventId && (
           <motion.div variants={stagger} initial="hidden" animate="show">
-            <p className="qp-select-label">Selecciona un Rével</p>
+            <p className="qp-select-label">Selecciona un Evento</p>
             <div className="qp-events-grid">
               {events.map(event => (
                 <motion.button
@@ -407,11 +407,11 @@ export default function QRPage() {
               <svg width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" strokeWidth="1.5" fill="none">
                 <polyline points="8,1 3,6 8,11"/>
               </svg>
-              Cambiar Rével
+              Cambiar Evento
             </button>
 
             {filteredTables.length === 0 ? (
-              <p className="qp-no-tables">Este Rével no tiene mesas configuradas.</p>
+              <p className="qp-no-tables">Este Evento no tiene mesas configuradas.</p>
             ) : (
               <motion.div
                 className="qp-tables-grid"
@@ -479,14 +479,14 @@ export default function QRPage() {
 
                   {/* Gallery */}
                   <div className="qp-gallery-section">
-                    <p className="qp-gallery-title">Fotos del Rével</p>
+                    <p className="qp-gallery-title">Fotos del Evento</p>
                     <div className="qp-gallery-grid">
                       {tablePhotos.length > 0 ? (
                         tablePhotos.map(photo => (
                           <img
                             key={photo.id}
                             src={photo.url}
-                            alt="Foto Rével"
+                            alt="Foto Evento"
                             className="qp-gallery-img"
                           />
                         ))

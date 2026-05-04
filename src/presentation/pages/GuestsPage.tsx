@@ -720,7 +720,7 @@ export default function GuestsPage() {
           <div className="gp-empty-page">
             <h1>Invitados</h1>
             <p>
-              Selecciona un Rével en el{' '}
+              Selecciona un Evento en el{' '}
               <Link to="/dashboard">dashboard</Link>{' '}
               para ver los invitados.
             </p>
@@ -738,7 +738,7 @@ export default function GuestsPage() {
         {/* HEADER */}
         <div className="gp-header">
           <div>
-            <p className="gp-eyebrow">Rével · {eventId}</p>
+            <p className="gp-eyebrow">Evento · {eventId}</p>
             <h1 className="gp-title">Lista de <em>invitados</em></h1>
             <div className="gp-gold-line" />
           </div>
@@ -851,7 +851,7 @@ export default function GuestsPage() {
         {filteredTables.length > 0 && (
           <>
             <div className="gp-section-title">
-              <h2>Mesas del Rével</h2>
+              <h2>Mesas del Evento</h2>
               <div className="gp-section-line" />
             </div>
             <div className="gp-tables-grid">
@@ -932,7 +932,7 @@ export default function GuestsPage() {
                       {/* header */}
                       <div className="gp-modal-header">
                         <div>
-                          <p className="gp-modal-eyebrow">Rével · Gestión</p>
+                          <p className="gp-modal-eyebrow">Evento · Gestión</p>
                           <h2 className="gp-modal-title">Nuevo <em>invitado</em></h2>
                         </div>
                         <button type="button" className="gp-modal-close" onClick={closeModal}>

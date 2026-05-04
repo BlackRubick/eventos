@@ -363,10 +363,10 @@ export default function TablesPage() {
         <div className="tp-header">
           <div>
             <p className="tp-eyebrow">
-              {activeEvent ? `Rével · ${activeEvent.name}` : 'Gestión de espacios'}
+              {activeEvent ? `Evento · ${activeEvent.name}` : 'Gestión de espacios'}
             </p>
             <h1 className="tp-title">
-              {activeEvent ? <><em>Mesas</em> del Rével</> : <>Orden de <em>mesas</em></>}
+              {activeEvent ? <><em>Mesas</em> del Evento</> : <>Orden de <em>mesas</em></>}
             </h1>
             <div className="tp-gold-line" />
           </div>
@@ -380,7 +380,7 @@ export default function TablesPage() {
         {/* ── STEP 1: ELEGIR EVENTO ── */}
         {!activeEventId && (
           <motion.div variants={stagger} initial="hidden" animate="show">
-            <p className="tp-select-label">Selecciona un Rével</p>
+            <p className="tp-select-label">Selecciona un Evento</p>
             <div className="tp-events-grid">
               {events.map(event => (
                 <motion.button
@@ -405,11 +405,11 @@ export default function TablesPage() {
               <svg width="12" height="12" viewBox="0 0 12 12" stroke="currentColor" strokeWidth="1.5" fill="none">
                 <polyline points="8,1 3,6 8,11"/>
               </svg>
-              Cambiar Rével
+              Cambiar Evento
             </button>
 
             {filteredTables.length === 0 ? (
-              <p className="tp-no-tables">Este Rével no tiene mesas configuradas.</p>
+              <p className="tp-no-tables">Este Evento no tiene mesas configuradas.</p>
             ) : (
               <motion.div
                 className="tp-tables-grid"

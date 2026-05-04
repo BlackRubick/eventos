@@ -4,7 +4,7 @@ const plans = [
   {
     name: 'Esencial',
     price: '$19',
-    period: '/Rével',
+    period: '/Evento',
     description: 'Ideal para eventos pequenos y organizacion inicial.',
     features: ['Hasta 150 invitados', 'Mesas y asignaciones basicas', 'Invitaciones PDF'],
     cta: 'Elegir Esencial',
@@ -13,7 +13,7 @@ const plans = [
   {
     name: 'Premium',
     price: '$49',
-    period: '/Rével',
+    period: '/Evento',
     description: 'La experiencia completa de Revel para producciones profesionales.',
     features: ['Invitados ilimitados', 'QR y galeria por mesa', 'Reportes RSVP y prioridad'],
     cta: 'Elegir Premium',
