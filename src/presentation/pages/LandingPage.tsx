@@ -24,12 +24,12 @@ const features = [
   {
     num: '05',
     title: 'Galería de fotos por QR',
-    desc: 'Cada mesa tiene un QR para subir y ver fotos del Rével.',
+    desc: 'Cada mesa tiene un QR para subir y ver fotos del Evento.',
   },
   {
     num: '06',
     title: 'Panel de administración seguro',
-    desc: 'Acceso protegido para organizar y monitorear todo Rével.',
+    desc: 'Acceso protegido para organizar y monitorear todo Evento.',
   },
 ];
 
@@ -485,7 +485,7 @@ export default function LandingPage() {
             </motion.div>
             <motion.h1 className="lp-hero-h1" variants={fadeUp}>
               Organiza tu<br />
-              Rével <em>soñado</em>
+              Evento <em>soñado</em>
             </motion.h1>
             <motion.p className="lp-hero-p" variants={fadeUp}>
               Gestión de invitados, mesas, confirmaciones y recuerdos — todo en una sola plataforma profesional diseñada para los momentos que importan.
@@ -506,7 +506,7 @@ export default function LandingPage() {
             <div className="lp-hero-frame">
               <img
                 src="/images/relevellanding.png"
-                alt="Rével elegante"
+                alt="Evento elegante"
                 className="lp-hero-img"
               />
               <span className="lp-hero-frame-label">Los mejores momentos </span>
@@ -528,7 +528,7 @@ export default function LandingPage() {
           transition={{ duration: 0.8 }}
         >
           {[
-            { num: '500+', label: 'Rével organizados' },
+            { num: '500+', label: 'Evento organizados' },
             { num: '12k+', label: 'Invitados gestionados' },
             { num: '100%', label: 'Satisfacción garantizada' },
           ].map(s => (
@@ -553,7 +553,7 @@ export default function LandingPage() {
               <em>necesitas</em>
             </h2>
             <p className="lp-features-intro">
-              Cada funcionalidad fue diseñada para eliminar el caos de organizar Rével y darte control total, con la elegancia que tu ocasión merece.
+              Cada funcionalidad fue diseñada para eliminar el caos de organizar Evento y darte control total, con la elegancia que tu ocasión merece.
             </p>
           </motion.div>
 
